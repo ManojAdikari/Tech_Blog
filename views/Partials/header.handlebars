@@ -9,8 +9,11 @@
           <li><a href="/home">Home</a></li>
           <li><a href="#About">Dashboard</a></li>
           <li><a href="#CompletedProject">Add New Post</a></li>
-          <li><a href="/login">Log In</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li>{{#if logged_in}}
+             <li><a href="#">Log Out</a></li>
+            {{else}}
+          <a href="/login">Log In</a></li>
+          {{/if}}
         </ul>
       
     </div><!-- End Logo -->
