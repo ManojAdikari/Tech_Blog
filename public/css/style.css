@@ -16,19 +16,21 @@ body {
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
   color: #444444;
-  background-image: url("../../assets/illustration-full.png");
+  background-image: url("../img/white-technology-background_23-2148390335.png");
+  background-repeat:   no-repeat;
+  background-position: center center;
 }
 header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 30px 10%;
-  background-color: #24252a;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
 
 a {
@@ -1253,19 +1255,20 @@ h6 {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.footer {
+.footers {
   padding: 20px 0;
   font-size: 14px;
   transition: all 0.3s;
   border-top: 1px solid #cddfff;
+  text-align: center;
 }
 
-.footer .copyright {
+.footers .copyright {
   text-align: center;
   color: #012970;
 }
 
-.footer .credits {
+.footers .credits {
   padding-top: 5px;
   text-align: center;
   font-size: 13px;
