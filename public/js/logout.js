@@ -1,17 +1,14 @@
 const logout = async () => {
-  const response = await fetch("/controllers/user_Register/logout", {
-    method: 'POST',
-    body: JSON.stringify({ name, email, password }),
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch("/api/users/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
   });
 
-
   if (response.ok) {
-    console.log("success");
-    document.location.replace("/dashboard");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }
-  };
-  
-  document.querySelector('#logout').addEventListener('click', logout);
+};
+
+document.querySelector("#logout").addEventListener("click", logout);
