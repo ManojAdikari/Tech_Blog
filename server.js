@@ -7,7 +7,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 
-const hbs2 = exphbs.create({});
+
 const hbs1 = require('hbs');
 
 const withAuth = require('./utils/auth');
@@ -44,6 +44,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 hbs1.registerPartials(path.join(__dirname, '/views/Partials'));
+
+//const hbs = require('hbs');
+
+//this required before view engine setup
+hbs1.registerPartials(__dirname + '/views/partials');
+
+
 
 app.use(routes);
 
