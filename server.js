@@ -43,12 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-hbs1.registerPartials(path.join(__dirname, '/views/Partials'));
 
-//const hbs = require('hbs');
-
-//this required before view engine setup
-hbs1.registerPartials(__dirname + '/views/partials');
 
 
 
