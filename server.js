@@ -43,6 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+hbs1.registerPartials(path.join(__dirname, '/views/Partials'));
 
 app.use(routes);
 
