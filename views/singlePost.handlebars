@@ -1,35 +1,78 @@
 <div class="container mt-5">
-    {{> post-info }}
-    <div class="container">
-        <h2>Comments</h2>
+  <div class="card mb-4">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/post/{{id}}" target="_blank" class="post-title text-decoration-none fw-bold">{{title}}</a>
+        </div>
 
-        <ul class="list-group">
-            {{#each comments as |comment|}}
-                {{> comment}}
-            {{/each}}
-        </ul>
+        <div class="col-md-6 text-md-end">
+          <p><small>Posted by
+              {{user.name}}
+              on
+              {{format_date createdAt}}</small></p>
+        </div>
+      </div>
     </div>
 
-    <button class="btn btn-primary my-3" type="button" data-bs-toggle="collapse"
-        data-bs-target="#add-comment-form" aria-expanded="false"
-        aria-controls="add-comment-form">
-        Add Comment
-    </button>
-    <div class="collapse" id="add-comment-form">
-        <form id="add-comment-form">
-            <input type="hidden" name="post_id" value="{{post.id}} ">
-            <div class="mb-3">
-                <label for="comment-body" class="form-label">Comment</label>
-                <textarea class="form-control" name="comment_body"
-                    id="comment-body" rows="10" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-        </form>
+    <div class="card-body">
+      <p>{{content}}</p>
     </div>
+
+    <div class="card-footer">
+      <a href="/post/{{id}}" class="card-footer-item">
+        {{comments.length}}
+        {{format_plural "comment" comments.length}}</a>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Comments</h2>
+
+    <ul class="list-group">
+      {{#each comments as |comment|}}
+      <li class="list-group-item bg-secondary text-white my-3">
+        <div class="column">
+          <div class="col">
+            {{comment_text}}
+
+          </div>
+          <div class="col text-md-end text-warning">
+            <p><small>--- Comment by
+                {{user.name}}
+                on
+                {{format_date createdAt}}</small></p>
+          </div>
+        </div>
+
+        <button data-comment-id="{{id}}" class="btn btn-danger btn-sm delete-comment">Delete</button>
+
+        <button type="button" class="btn btn-sm btn-warning edit-comment" data-bs-toggle="modal"
+          data-bs-target="#edit-comment-modal" data-comment-id="{{id}}">Edit</button>
+
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <button class="btn btn-primary my-3" type="button" data-bs-toggle="collapse" data-bs-target="#add-comment-form"
+    aria-expanded="false" aria-controls="add-comment-form">
+    Add Comment
+  </button>
+  <div class="collapse" id="add-comment-form">
+    <form id="add-comment-form">
+      <input type="hidden" name="post_id" value="{{post.id}} ">
+      <div class="mb-3">
+        <label for="comment-body" class="form-label">Comment</label>
+        <textarea class="form-control" name="comment_body" id="comment-body" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
 </div>
 
 <!-- Edit comment modal -->
-<div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label" aria-hidden="true">
+<div class="modal fade" id="edit-comment-modal" tabindex="-1" aria-labelledby="edit-comment-modal-label"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

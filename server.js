@@ -43,6 +43,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+hbs1.registerPartials(path.join(__dirname, '/views/Partials'));
+
 
 
 
@@ -54,8 +56,7 @@ app.use(routes);
     app.listen(PORT, () => console.log(`Server listening on: http://localhost: ${PORT}`));
   });
   
-  app.use((err, req, res) => {
-    console.error(err.stack);
-    res.status(500).send("Something Went Wrong!");
-  });
-
+  app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({error: 'an error occurred'});
+   });
