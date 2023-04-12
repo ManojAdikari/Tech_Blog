@@ -1,28 +1,49 @@
-<section class="section">
+<div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <h2 class="mt-4 mb-4">Dashboard</h2>
+      <a href="/dashboard/newPost" class="btn btn-primary mb-4">New Post</a>
+      {{#each posts as |post|}}
+        <div class="card my-4">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <a
+                  href="/post/{{post.id}}"
+                  target="_blank"
+                  class="post-title text-decoration-none fw-bold"
+                >{{title}}</a>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <p><small>Posted by
+                    {{user.name}}
+                    on
+                    {{format_date createdAt}}</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>{{content}}</p>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-6">
+                <a href="/post/{{post.id}}" class="card-footer-item">
+                  {{comments.length}}
+                  {{format_plural "comment" comments.length}}</a>
+              </div>
 
-
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Dashboard</h5>
-
-        <div class="col-lg-6">
-        
-          <a href="/newPost" class="btn btn-primary mb-4">New Post</a>
-
-
-       
+              <div class="col-md-6">
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit
+                  post</a>
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
+      {{else}}
+        <p>posts Not available</p>
+      {{/each}}
     </div>
-
   </div>
+</div>
 
-  <div class="col-lg-6">
-
-
-
-  </div>
-  </div>
-</section>

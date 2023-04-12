@@ -1,30 +1,33 @@
- <!-- ======= Header ======= -->
- <header id="header" class="header fixed-top d-flex align-items-center">
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="" alt="">
-        <span class="d-none d-lg-block">Tech Blog</span>
-      </a>
-     <ul class="nav_links">
-          <li><a href="/home">Home</a></li>
-          <li><a href="#About">Dashboard</a></li>
-          <li><a href="#CompletedProject">Add New Post</a></li>
-          <li>{{#if logged_in}}
-             <li><a href="#">Log Out</a></li>
-            {{else}}
-          <a href="/login">Log In</a></li>
-          {{/if}}
-        </ul>
-      
-    </div><!-- End Logo -->
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="" alt="">
+      <span class="d-none d-lg-block">Tech Blog</span>
+    </a>
 
-   
+    <ul class="nav_links">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a id="dashboard" href="/dashboard">Dashboard</a>
+      </li>
+      {{#if logged_in}}
+      <li>
+        <a id="logout" href="#">Logout</a>
+      </li>
+      {{else}}
+      <li>
+        <a id="login" href="/login">Login</a>
+      </li>
+      {{/if}}
+    </ul>
 
-    <nav class="header-nav ms-auto">
+  </div><!-- End Logo -->
 
-      
-   
-       
-    
-    </nav><!-- End Icons Navigation -->
+
+  <nav class="header-nav ms-auto">
+
+  </nav>
 </header>
